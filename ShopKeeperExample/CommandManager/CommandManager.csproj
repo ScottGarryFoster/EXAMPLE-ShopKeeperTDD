@@ -39,8 +39,10 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="API\ICommandInterpreter.cs" />
         <Compile Include="API\IGameLoop.cs" />
         <Compile Include="API\IUserInfoExchange.cs" />
+        <Compile Include="BasicCommandInterpreter.cs" />
         <Compile Include="ConsoleExchange.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="ShopGameLoop.cs" />
