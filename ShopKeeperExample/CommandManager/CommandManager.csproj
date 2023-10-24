@@ -39,12 +39,18 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="API\CommandArgs.cs" />
         <Compile Include="API\ICommandInterpreter.cs" />
+        <Compile Include="API\ICommandResolver.cs" />
         <Compile Include="API\IGameLoop.cs" />
+        <Compile Include="API\IRunableCommand.cs" />
+        <Compile Include="API\ISingleTextResolver.cs" />
         <Compile Include="API\IUserInfoExchange.cs" />
         <Compile Include="BasicCommandInterpreter.cs" />
+        <Compile Include="CommandResolver.cs" />
         <Compile Include="ConsoleExchange.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="RunableCommand.cs" />
         <Compile Include="ShopGameLoop.cs" />
     </ItemGroup>
     <ItemGroup>

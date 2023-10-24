@@ -58,6 +58,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BasicCommandInterpreterTests.cs" />
+        <Compile Include="CommandResolverTests.cs" />
         <Compile Include="ShopGameLoopTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
