@@ -5,11 +5,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{69E2FEA7-950D-4FAF-9ACC-689B50EB4299}</ProjectGuid>
+        <ProjectGuid>{D62EAB8C-6E6E-4134-A8B3-D00F7AD40F95}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>CommandManager</RootNamespace>
-        <AssemblyName>CommandManager</AssemblyName>
+        <RootNamespace>ItemManager</RootNamespace>
+        <AssemblyName>ItemManager</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -39,19 +39,8 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="API\ICommandInterpreter.cs" />
-        <Compile Include="API\IGameLoop.cs" />
-        <Compile Include="API\IUserInfoExchange.cs" />
-        <Compile Include="BasicCommandInterpreter.cs" />
-        <Compile Include="ConsoleExchange.cs" />
+        <Compile Include="API\Item.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="ShopGameLoop.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\ItemManager\ItemManager.csproj">
-        <Project>{d62eab8c-6e6e-4134-a8b3-d00f7ad40f95}</Project>
-        <Name>ItemManager</Name>
-      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

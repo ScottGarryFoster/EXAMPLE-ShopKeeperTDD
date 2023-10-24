@@ -62,13 +62,17 @@
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <ItemGroup>
-      <None Include="packages.config" />
-    </ItemGroup>
-    <ItemGroup>
       <ProjectReference Include="..\CommandManager\CommandManager.csproj">
         <Project>{69e2fea7-950d-4faf-9acc-689b50eb4299}</Project>
         <Name>CommandManager</Name>
       </ProjectReference>
+      <ProjectReference Include="..\ItemManager\ItemManager.csproj">
+        <Project>{d62eab8c-6e6e-4134-a8b3-d00f7ad40f95}</Project>
+        <Name>ItemManager</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="Properties\packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
