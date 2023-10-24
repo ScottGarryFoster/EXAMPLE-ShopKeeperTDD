@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopKeeperExample", "ShopKeeperExample\ShopKeeperExample.csproj", "{5B824E45-CE6A-4111-9A00-DAE87FADC71F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandManager", "CommandManager\CommandManager.csproj", "{69E2FEA7-950D-4FAF-9ACC-689B50EB4299}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandManagerTests", "CommandManagerTests\CommandManagerTests.csproj", "{324E840C-B2A7-4F6D-A7CC-457C8A696787}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{5B824E45-CE6A-4111-9A00-DAE87FADC71F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B824E45-CE6A-4111-9A00-DAE87FADC71F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B824E45-CE6A-4111-9A00-DAE87FADC71F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69E2FEA7-950D-4FAF-9ACC-689B50EB4299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69E2FEA7-950D-4FAF-9ACC-689B50EB4299}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69E2FEA7-950D-4FAF-9ACC-689B50EB4299}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69E2FEA7-950D-4FAF-9ACC-689B50EB4299}.Release|Any CPU.Build.0 = Release|Any CPU
+		{324E840C-B2A7-4F6D-A7CC-457C8A696787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{324E840C-B2A7-4F6D-A7CC-457C8A696787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{324E840C-B2A7-4F6D-A7CC-457C8A696787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{324E840C-B2A7-4F6D-A7CC-457C8A696787}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

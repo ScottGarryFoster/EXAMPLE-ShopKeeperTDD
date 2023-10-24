@@ -5,14 +5,13 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{5B824E45-CE6A-4111-9A00-DAE87FADC71F}</ProjectGuid>
-        <OutputType>Exe</OutputType>
+        <ProjectGuid>{69E2FEA7-950D-4FAF-9ACC-689B50EB4299}</ProjectGuid>
+        <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>ShopKeeperExample</RootNamespace>
-        <AssemblyName>ShopKeeperExample</AssemblyName>
+        <RootNamespace>CommandManager</RootNamespace>
+        <AssemblyName>CommandManager</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
-        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,14 +39,11 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Program.cs"/>
+        <Compile Include="API\IGameLoop.cs" />
+        <Compile Include="API\IUserInfoExchange.cs" />
+        <Compile Include="ConsoleExchange.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\CommandManager\CommandManager.csproj">
-        <Project>{69e2fea7-950d-4faf-9acc-689b50eb4299}</Project>
-        <Name>CommandManager</Name>
-      </ProjectReference>
+        <Compile Include="ShopGameLoop.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

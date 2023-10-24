@@ -1,13 +1,16 @@
 ﻿using System;
+using CommandManager;
 
 namespace ShopKeeperExample
 {
     internal static class Program
     {
-        public static void Main(string[] args)
+        public static int Main(string[] args)
         {
-            Console.WriteLine("Hello");
-            Console.ReadKey();
+            IGameLoop loop = new ShopGameLoop(new ConsoleExchange());
+            loop.RunGame();
+
+            return 0;
         }
     }
 }
