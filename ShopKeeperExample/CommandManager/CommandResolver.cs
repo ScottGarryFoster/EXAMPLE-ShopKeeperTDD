@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CommandManager
 {
@@ -25,7 +26,48 @@ namespace CommandManager
         /// <returns>True means command found. </returns>
         public bool ResolveCommand(string command)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(command))
+            {
+                return false;
+            }
+
+            string[] commandPieces = command.Split(' ');
+            foreach(IRunableCommand runable in commands)
+            {
+                if (ResolveEachCommandPiece(0, commandPieces, runable))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        
+        /// <summary>
+        /// Resolves a single command by resolving a single part of the command structure.
+        /// </summary>
+        /// <param name="current">Current segment of the command. </param>
+        /// <param name="commandPieces">All the segments of commands. </param>
+        /// <param name="runable">The event to run when complete. </param>
+        /// <returns>True means could find a command to resolve. </returns>
+        private bool ResolveEachCommandPiece(int current, string[] commandPieces, IRunableCommand runable)
+        {
+            bool didResolve = false;
+            string currentPiece = commandPieces[current++];
+            if (runable.Entry.IsValid(currentPiece))
+            {
+                if (runable.NextCommand != null)
+                {
+                    didResolve = ResolveEachCommandPiece(current, commandPieces, runable.NextCommand);
+                }
+                else
+                {
+                    didResolve = true;
+                    runable.Runable?.Invoke(this, null);
+                }
+            }
+
+            return didResolve;
         }
 
         /// <summary>
