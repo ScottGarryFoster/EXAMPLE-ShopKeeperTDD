@@ -34,7 +34,11 @@ namespace CommandManager
             string[] commandPieces = command.Split(' ');
             foreach(IRunableCommand runable in commands)
             {
-                if (ResolveEachCommandPiece(0, commandPieces, runable))
+                if (ResolveEachCommandPiece(
+                        current: 0, 
+                        commandPieces, 
+                        runable, 
+                        values: new List<object>()))
                 {
                     return true;
                 }
@@ -49,27 +53,43 @@ namespace CommandManager
         /// <param name="current">Current segment of the command. </param>
         /// <param name="commandPieces">All the segments of commands. </param>
         /// <param name="runable">The event to run when complete. </param>
+        /// <param name="values">Current values collected. </param>
         /// <returns>True means could find a command to resolve. </returns>
-        private bool ResolveEachCommandPiece(int current, string[] commandPieces, IRunableCommand runable)
+        private bool ResolveEachCommandPiece(
+            int current, 
+            string[] commandPieces,
+            IRunableCommand runable,
+            List<object> values)
         {
             bool didResolve = false;
             string currentPiece = commandPieces[current++];
-            if (runable.Entry.IsValid(currentPiece))
+            if (CurrentSegmentOfCommandIsValid(current, currentPiece, runable))
             {
+                if (runable.IsValueStage)
+                {
+                    values.Add(currentPiece);
+                }
+                
                 if (runable.NextCommand != null)
                 {
-                    didResolve = ResolveEachCommandPiece(current, commandPieces, runable.NextCommand);
+                    didResolve = ResolveEachCommandPiece(current, commandPieces, runable.NextCommand, values);
                 }
                 else
                 {
                     didResolve = true;
-                    runable.Runable?.Invoke(this, null);
+                    
+                    var args = new CommandArgs()
+                    {
+                        CommandStrings = commandPieces,
+                        CommandValues = values.ToArray(),
+                    };
+                    runable.Runable?.Invoke(this, args);
                 }
             }
 
             return didResolve;
         }
-
+        
         /// <summary>
         /// Gives the resolver a new command.
         /// </summary>
@@ -114,6 +134,40 @@ namespace CommandManager
             }
 
             return true;
+        }
+        
+        /// <summary>
+        /// Determines if the current piece is valid within a larger command.
+        /// </summary>
+        /// <param name="current">Current stage in the command. </param>
+        /// <param name="currentPiece">Current piece to evaluate. </param>
+        /// <param name="runable">Command to run. </param>
+        /// <returns>True means valid. </returns>
+        private bool CurrentSegmentOfCommandIsValid(int current, string currentPiece, IRunableCommand runable)
+        {
+            if (string.IsNullOrWhiteSpace(currentPiece))
+            {
+                return false;
+            }
+
+            bool isValid = false;
+            if (current > 0)
+            {
+                if (runable.IsValueStage)
+                {
+                    isValid = true;
+                }
+            }
+
+            if (!isValid)
+            {
+                if (runable?.Entry?.IsValid(currentPiece) == true)
+                {
+                    isValid = true;
+                }
+            }
+
+            return isValid;
         }
     }
 }

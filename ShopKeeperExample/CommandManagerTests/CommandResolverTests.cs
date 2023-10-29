@@ -345,6 +345,94 @@ namespace CommandManagerTests
             // Assert
             Assert.IsFalse(actual);
         }
+        
+        [Test]
+        public void ResolveCommand_ReturnsTrue_WhenSecondLevelOfCommandIsValueAndSomethingIsGivenTest()
+        {
+            string firstGiven = "testcommand";
+            string subValue = "stringValue";
+            string given = $"{firstGiven} {subValue}";
+            
+            // Arrange
+            IRunableCommand subCommand = new RunableCommand()
+            {
+                IsValueStage = true,
+            };
+            
+            IRunableCommand newCommand = CreateCommandWithSubCommand(firstGiven, subCommand);
+            this.testClass.GiveCommand(newCommand);
+
+            // Act
+            bool actual = this.testClass.ResolveCommand(given);
+            
+            // Assert
+            Assert.IsTrue(actual);
+        }
+        
+        [Test]
+        public void ResolveCommand_SendsAllValues_WhenTwoCommandsAreChainedTest()
+        {
+            string firstGiven = "testcommand";
+            string subValue = "stringValue";
+            string given = $"{firstGiven} {subValue}";
+            
+            // Arrange
+            IRunableCommand subCommand = new RunableCommand()
+            {
+                IsValueStage = true,
+            };
+            
+            IRunableCommand newCommand = CreateCommandWithSubCommand(firstGiven, subCommand);
+            this.testClass.GiveCommand(newCommand);
+            
+            object[] values = null;
+            subCommand.Runable += (sender, args) =>
+            {
+                values = args.CommandValues;
+                return null;
+            };
+
+            // Act
+            bool actual = this.testClass.ResolveCommand(given);
+            
+            // Assert
+            Assert.NotNull(values);
+            Assert.AreEqual(1, values.Length);
+            Assert.AreEqual(values[0], subValue);
+        }
+        
+        [Test]
+        public void ResolveCommand_SendsAllCommands_WhenTwoCommandsAreChainedTest()
+        {
+            string firstGiven = "testcommand";
+            string subValue = "stringValue";
+            string given = $"{firstGiven} {subValue}";
+            
+            // Arrange
+            IRunableCommand subCommand = new RunableCommand()
+            {
+                IsValueStage = true,
+            };
+            
+            IRunableCommand newCommand = CreateCommandWithSubCommand(firstGiven, subCommand);
+            this.testClass.GiveCommand(newCommand);
+            
+            string[] commands = null;
+            subCommand.Runable += (sender, args) =>
+            {
+                commands = args.CommandStrings;
+                return null;
+            };
+
+            // Act
+            bool actual = this.testClass.ResolveCommand(given);
+            
+            // Assert
+            Assert.NotNull(commands);
+            Assert.AreEqual(2, commands.Length);
+            Assert.AreEqual(commands[0], firstGiven);
+            Assert.AreEqual(commands[1], subValue);
+        }
 
         private IRunableCommand CreateCommand(string given)
         {
