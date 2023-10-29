@@ -61,6 +61,11 @@ namespace CommandManager
             IRunableCommand runable,
             List<object> values)
         {
+            if (current == commandPieces.Length)
+            {
+                return false;
+            }
+            
             bool didResolve = false;
             string currentPiece = commandPieces[current++];
             if (CurrentSegmentOfCommandIsValid(current, currentPiece, runable))

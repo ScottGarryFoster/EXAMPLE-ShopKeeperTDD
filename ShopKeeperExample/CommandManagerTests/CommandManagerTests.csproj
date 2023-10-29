@@ -61,6 +61,7 @@
         <Compile Include="CommandResolverTests.cs" />
         <Compile Include="ShopGameLoopTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="SimpleTextResolverTests.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\CommandManager\CommandManager.csproj">
