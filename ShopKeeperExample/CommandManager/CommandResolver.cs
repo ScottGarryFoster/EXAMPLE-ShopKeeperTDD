@@ -83,7 +83,7 @@ namespace CommandManager
                 {
                     didResolve = true;
                     
-                    var args = new CommandArgs()
+                    CommandArgs args = new()
                     {
                         CommandStrings = commandPieces,
                         CommandValues = values.ToArray(),

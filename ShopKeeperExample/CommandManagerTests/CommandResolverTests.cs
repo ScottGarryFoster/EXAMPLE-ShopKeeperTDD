@@ -22,7 +22,7 @@ namespace CommandManagerTests
         [Test]
         public void GiveCommand_ReturnsTrue_WhenCommandHasAnEntryTest()
         {
-            var given = new RunableCommand { Entry = this.validResolver };
+            RunableCommand given = new () { Entry = this.validResolver };
 
             bool actual = this.testClass.GiveCommand(given);
             
@@ -32,7 +32,7 @@ namespace CommandManagerTests
         [Test]
         public void GiveCommand_ReturnsFalse_WhenCommandIsBlankTest()
         {
-            var given = new RunableCommand();
+            RunableCommand given = new ();
 
             bool actual = this.testClass.GiveCommand(given);
             
@@ -42,7 +42,7 @@ namespace CommandManagerTests
         [Test]
         public void GiveCommand_ReturnsTrue_WhenCommandIsValueStageIsTrueTest()
         {
-            var given = new RunableCommand { IsValueStage = true };
+            RunableCommand given = new () { IsValueStage = true };
 
             bool actual = this.testClass.GiveCommand(given);
             
@@ -52,8 +52,8 @@ namespace CommandManagerTests
         [Test]
         public void GiveCommand_ReturnsFalse_WhenRecursiveCommandIsEmptyTest()
         {
-            var empty = new RunableCommand();
-            var given = new RunableCommand
+            RunableCommand empty = new ();
+            RunableCommand given = new ()
             {
                 Entry = this.validResolver,
                 NextCommand = empty
@@ -67,8 +67,8 @@ namespace CommandManagerTests
         [Test]
         public void GiveCommand_ReturnsTrue_WhenRecursiveCommandHasAnEntryTest()
         {
-            var inner = new RunableCommand {Entry = this.validResolver};
-            var given = new RunableCommand
+            RunableCommand inner = new () {Entry = this.validResolver};
+            RunableCommand given = new ()
             {
                 Entry = this.validResolver,
                 NextCommand = inner
@@ -82,8 +82,8 @@ namespace CommandManagerTests
         [Test]
         public void GiveCommand_ReturnsTrue_WhenRecursiveCommandIsAValueTest()
         {
-            var inner = new RunableCommand {IsValueStage = true};
-            var given = new RunableCommand
+            RunableCommand inner = new () {IsValueStage = true};
+            RunableCommand given = new ()
             {
                 Entry = this.validResolver,
                 NextCommand = inner
@@ -97,7 +97,7 @@ namespace CommandManagerTests
         [Test, Timeout(1000)]
         public void GiveCommand_DoesNotCrash_WhenCommandInNextIsRecursiveTest()
         {
-            var given = new RunableCommand
+            RunableCommand given = new ()
             {
                 Entry = this.validResolver
             };
@@ -148,7 +148,7 @@ namespace CommandManagerTests
             string given = "testcommand";
             
             // Arrange
-            var resolver = new Mock<ISingleTextResolver>();
+            Mock<ISingleTextResolver> resolver = new ();
             resolver.Setup(x => x.IsValid(given)).Returns(true);
             IRunableCommand newCommand = new RunableCommand()
             {
@@ -169,7 +169,7 @@ namespace CommandManagerTests
             string given = "testcommand";
             
             // Arrange
-            var resolver = new Mock<ISingleTextResolver>();
+            Mock<ISingleTextResolver> resolver = new ();
             resolver.Setup(x => x.IsValid(given)).Returns(false);
             IRunableCommand newCommand = new RunableCommand()
             {
@@ -322,7 +322,7 @@ namespace CommandManagerTests
             string given = $"{firstGiven} {subGiven}";
             
             // Arrange
-            var resolver = new Mock<ISingleTextResolver>();
+            Mock<ISingleTextResolver> resolver = new ();
             resolver.Setup(x => x.IsValid(subGiven)).Returns(false);
             IRunableCommand subCommand = new RunableCommand()
             {
@@ -436,7 +436,7 @@ namespace CommandManagerTests
 
         private IRunableCommand CreateCommand(string given)
         {
-            var resolver = new Mock<ISingleTextResolver>();
+            Mock<ISingleTextResolver> resolver = new ();
             resolver.Setup(x => x.IsValid(given)).Returns(true);
             IRunableCommand newCommand = new RunableCommand()
             {
@@ -447,7 +447,7 @@ namespace CommandManagerTests
         
         private IRunableCommand CreateCommandWithSubCommand(string given, IRunableCommand subCommand)
         {
-            var resolver = new Mock<ISingleTextResolver>();
+            Mock<ISingleTextResolver> resolver = new ();
             resolver.Setup(x => x.IsValid(given)).Returns(true);
             IRunableCommand newCommand = new RunableCommand()
             {
