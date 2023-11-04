@@ -1,4 +1,4 @@
-﻿namespace ItemManager
+﻿namespace GameElements
 {
     /// <summary>
     /// Describes the types of items.

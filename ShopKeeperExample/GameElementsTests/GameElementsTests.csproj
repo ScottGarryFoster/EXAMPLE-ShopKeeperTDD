@@ -5,14 +5,14 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{69E2FEA7-950D-4FAF-9ACC-689B50EB4299}</ProjectGuid>
+        <ProjectGuid>{FA556188-BCBF-4056-A073-EE519F837385}</ProjectGuid>
+        <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>CommandManager</RootNamespace>
-        <AssemblyName>CommandManager</AssemblyName>
+        <RootNamespace>GameElementsTests</RootNamespace>
+        <AssemblyName>GameElementsTests</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
-        <LangVersion>11</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,22 +38,13 @@
         <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Xml"/>
+        <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+            <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="API\CommandArgs.cs" />
-        <Compile Include="API\ICommandInterpreter.cs" />
-        <Compile Include="API\ICommandResolver.cs" />
-        <Compile Include="API\IGameLoop.cs" />
-        <Compile Include="API\IRunableCommand.cs" />
-        <Compile Include="API\ISingleTextResolver.cs" />
-        <Compile Include="API\IUserInfoExchange.cs" />
-        <Compile Include="BasicCommandInterpreter.cs" />
-        <Compile Include="CommandResolver.cs" />
-        <Compile Include="ConsoleExchange.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="RunableCommand.cs" />
-        <Compile Include="ShopGameLoop.cs" />
-        <Compile Include="SimpleTextResolver.cs" />
+        <Compile Include="ShopKeeper\ShopKeeperTests.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\GameElements\GameElements.csproj">

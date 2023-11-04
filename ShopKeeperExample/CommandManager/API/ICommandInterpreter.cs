@@ -1,4 +1,4 @@
-﻿using ItemManager;
+﻿using GameElements;
 
 namespace CommandManager
 {

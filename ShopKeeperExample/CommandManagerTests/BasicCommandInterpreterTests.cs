@@ -1,6 +1,6 @@
 ﻿using System;
 using CommandManager;
-using ItemManager;
+using GameElements;
 using NUnit.Framework;
 
 namespace CommandManagerTests

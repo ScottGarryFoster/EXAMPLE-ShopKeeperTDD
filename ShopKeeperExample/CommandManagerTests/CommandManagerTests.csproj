@@ -69,9 +69,9 @@
         <Project>{69e2fea7-950d-4faf-9acc-689b50eb4299}</Project>
         <Name>CommandManager</Name>
       </ProjectReference>
-      <ProjectReference Include="..\ItemManager\ItemManager.csproj">
-        <Project>{d62eab8c-6e6e-4134-a8b3-d00f7ad40f95}</Project>
-        <Name>ItemManager</Name>
+      <ProjectReference Include="..\GameElements\GameElements.csproj">
+        <Project>{1fdf02d3-cf7c-42f1-8313-4e4bf2f8af4a}</Project>
+        <Name>GameElements</Name>
       </ProjectReference>
     </ItemGroup>
     <ItemGroup>
