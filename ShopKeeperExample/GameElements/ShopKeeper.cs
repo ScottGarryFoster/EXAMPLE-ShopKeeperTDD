@@ -72,7 +72,8 @@ namespace GameElements
         /// <returns>Information about the trade. </returns>
         public InventoryAnswer Buy(Item item, int quantity, int wallet)
         {
-            throw new NotImplementedException();
+            return new InventoryAnswer() {Answer = ShopInventoryAnswer.SuccessfulTrade};
+            //throw new NotImplementedException();
         }
 
         /// <summary>
