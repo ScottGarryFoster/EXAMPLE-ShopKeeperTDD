@@ -10,11 +10,10 @@
         /// </summary>
         /// <param name="item">Item to give. </param>
         /// <param name="quantity">Quantity to give. </param>
-        /// <param name="price">New price to set. </param>
         /// <returns>
         /// Returns the number of items in their inventory or <c>-1</c> when invalid input.
         /// </returns>
-        int Give(Item item, int quantity, int price);
+        int Give(Item item, int quantity);
         
         // We will make this soon
         //InventoryAnswer Buy(Item item, int quantity, int wallet);
