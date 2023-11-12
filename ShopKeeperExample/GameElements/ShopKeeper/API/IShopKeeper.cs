@@ -29,7 +29,13 @@
         /// <returns>Price for the item. Returns 0 by default. </returns>
         int GetPrice(Item item);
 
-        // We will make this soon
-        //InventoryAnswer Buy(Item item, int quantity, int wallet);
+        /// <summary>
+        /// Buy an item from the shop.
+        /// </summary>
+        /// <param name="item">The item to buy. </param>
+        /// <param name="quantity">How many to buy. </param>
+        /// <param name="wallet">Your wallet value. </param>
+        /// <returns>Information about the trade. </returns>
+        InventoryAnswer Buy(Item item, int quantity, int wallet);
     }
 }

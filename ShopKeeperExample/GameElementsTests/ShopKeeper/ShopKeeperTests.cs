@@ -163,5 +163,9 @@ namespace GameElementsTests
         }
 
         #endregion
+        
+        #region Buy
+        
+        #endregion
     }
 }

@@ -64,6 +64,18 @@ namespace GameElements
         }
 
         /// <summary>
+        /// Buy an item from the shop.
+        /// </summary>
+        /// <param name="item">The item to buy. </param>
+        /// <param name="quantity">How many to buy. </param>
+        /// <param name="wallet">Your wallet value. </param>
+        /// <returns>Information about the trade. </returns>
+        public InventoryAnswer Buy(Item item, int quantity, int wallet)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Structure to make Stock easier to read.
         /// </summary>
         private class StockItem
