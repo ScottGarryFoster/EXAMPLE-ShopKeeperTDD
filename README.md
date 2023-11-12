@@ -88,11 +88,11 @@ Test Driven Development key aspects to remember:
 2. Arrange, Act, Assert
 3. Test Public Behaviour
 
-![](https://github.com/ScottGarryFoster/EXAMPLE-ShopKeeperTDD/blob/main/ReadmeImages/TDDFlow.drawio.png?raw=true)
+![](https://github.com/ScottGarryFoster/EXAMPLE-ShopKeeperTDD/blob/main/ReadmeImages/TDDFlow-OnWhite.drawio.png?raw=true)
 
 Red Green Clean is the loop for TDD. Write a failing Test, make it pass then ensure your code is clean using your tests to verify everything still works.
 
-![](https://github.com/ScottGarryFoster/EXAMPLE-ShopKeeperTDD/blob/main/ReadmeImages/ArrangeActAssert.drawio.png?raw=true)
+![](https://github.com/ScottGarryFoster/EXAMPLE-ShopKeeperTDD/blob/main/ReadmeImages/ArrangeActAssert-OnWhite.drawio.png?raw=true)
 
 The triple A structure might help you write the tests. Arrange the state you would like to test under, perform the test and then check the results. You also may end up writing these in a different order but in the method naturally these will occur in this order.
 
