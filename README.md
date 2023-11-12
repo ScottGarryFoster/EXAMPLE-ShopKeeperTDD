@@ -25,12 +25,15 @@ This project is a starting point, therefore there is already some code to make i
 As in Test Driven Development, everything is primarily driven by requirements. Below are the requirements and then the design of the application for the existing parts.
 
 **Give**
+
 To get to the point of buy, give is required to setup the Shop Keeper.
 These were the requirements and then below the design to meet them.
 ![Give Design](https://github.com/ScottGarryFoster/EXAMPLE-ShopKeeperTDD/blob/main/ReadmeImages/GiveRequirements.png?raw=true)
 The give command is hooked up to the top level as, **Give** *item* *quanity* and may be previewed below.
 ![](https://github.com/ScottGarryFoster/EXAMPLE-ShopKeeperTDD/blob/main/ReadmeImages/GiveCommandInUse.PNG?raw=true)
+
 **Set Price Get Price**
+
 Price is required before we can buy otherwise we cannot look at the wallet value. This is the design:
 ![](https://github.com/ScottGarryFoster/EXAMPLE-ShopKeeperTDD/blob/main/ReadmeImages/SetPriceRequirements.png?raw=true)
 Set Price and Get Price are both simple methods to store the value ready for buy. Below is it being used.
@@ -86,9 +89,11 @@ Test Driven Development key aspects to remember:
 3. Test Public Behaviour
 
 ![](https://github.com/ScottGarryFoster/EXAMPLE-ShopKeeperTDD/blob/main/ReadmeImages/TDDFlow.drawio.png?raw=true)
+
 Red Green Clean is the loop for TDD. Write a failing Test, make it pass then ensure your code is clean using your tests to verify everything still works.
 
 ![](https://github.com/ScottGarryFoster/EXAMPLE-ShopKeeperTDD/blob/main/ReadmeImages/ArrangeActAssert.drawio.png?raw=true)
+
 The triple A structure might help you write the tests. Arrange the state you would like to test under, perform the test and then check the results. You also may end up writing these in a different order but in the method naturally these will occur in this order.
 
 # Good Luck and Links below
